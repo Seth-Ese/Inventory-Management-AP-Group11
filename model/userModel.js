@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     lastName: { type: String, required: false },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    instruments: {type:mongoose.Schema.Types.ObjectId,ref:'Instruments'},
+    cars: {type:mongoose.Schema.Types.ObjectId,ref:'Cars'},
 });
 
 const Users = mongoose.model('Users', userSchema)
