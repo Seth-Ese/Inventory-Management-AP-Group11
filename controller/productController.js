@@ -59,3 +59,28 @@ exports.getSingleProduct = async (req, res) => {
  
 };
 
+// Updating Product
+exports.updateProduct = async (req, res) => {
+    let productId = req.params.id;
+    let update = req.body;
+    const response = await Product.findByIdAndUpdate(productId, update);
+    if(response) {
+        res.status(200).json({
+            status: "Successful",
+            message: `Product with id ${response._id} updated`
+        })
+    }
+}
+
+exports.deleteProduct = async (req, res) => {
+    let productId = req.params.id;
+    let del = req.body;
+    const response = await Product.findByIdAndDelete({_id:productId});
+    if(response) {
+        res.status(200).json({
+            status: "Successful",
+            message: `Product with id ${response._id} deleted`
+        })
+    }
+}
+

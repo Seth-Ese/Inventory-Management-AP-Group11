@@ -9,6 +9,8 @@ Router.use(express.json())
 Router.post('/',auth,productController.addProduct);
 Router.get('/',auth,productController.getProducts);
 Router.get('/:id',auth,productController.getSingleProduct);
+Router.put('/:id',auth, productController.updateProduct);
+Router.delete('/:id', auth, productController.deleteProduct);
 
 
 module.exports = Router;
